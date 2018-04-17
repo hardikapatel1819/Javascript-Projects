@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <script>
+        function sresult(ftotal ,pass1) {
+           // console.log("I am called");
+            var math = parseInt(document.getElementById('ma1').value);
+            var sci = parseInt(document.getElementById('sc1').value);
+            var en = parseInt(document.getElementById('en1').value);
+            var rtotal = math + sci + en;
+            document.getElementById(ftotal).value = rtotal;
+          //  console.log(rtotal);
+            if ((math >= 35) && (sci>= 35) && (en>= 35)) {
+                //console.log("I am Your Poblem",math,sci,en);
+                document.getElementById(pass1).value= "Pass";
+                //alert("hello");
+            }
+            else {
+                document.getElementById(pass1).value = "Fail";
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <header style="font-size: 28px;text-align: center;">Student Results</header>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-2"><h4>Name</h4></div>
+            <div class="col-sm-2"><h4>Math</h4></div>
+            <div class="col-sm-2"><h4>Science</h4></div>
+            <div class="col-sm-2"><h4>English</h4></div>
+            <div class="col-sm-2"><h4>Total</h4></div>
+            <div class="col-sm-2"><h4>Pass/Fail</h4></div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <input type="text" name="sname" id="sname" class="form-cotrol " />
+            </div>
+            <div class="col-sm-2">
+                <input type="number" name="m1" id="ma1" class="form-control form-control-sm" value="0" onchange="sresult('total1','pass')"/>
+            </div>
+            <div class="col-sm-2">
+                <input type="number" name="m1" id="sc1" class="form-control form-control-sm" value="0" onchange="sresult('total1','pass')" />
+            </div>
+            <div class="col-sm-2">
+                <input type="number" name="m1" id="en1" class="form-control form-control-sm" value="0" onchange="sresult('total1','pass')" />
+            </div>
+            <div class="col-sm-2">
+                <input type="number" name="m1" id="total1" readonly   class="form-control form-control-sm" />
+            </div>
+            <div class="col-sm-2">
+                <input type="text" name="m1" id="pass" readonly class="form-control form-control-sm" />
+            </div>
+        </div>
+
+
+
+
+    </div>
+</body>
+</html>

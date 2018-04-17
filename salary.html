@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>salary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <script>
+        function salarytotal(gaId,gaIdTotal) {
+            //GA
+            var a=parseFloat( document.getElementById('salary1').value);
+            var b= parseInt(gaId);
+            var gatotalf = a* b /100;
+            document.getElementById(gaIdTotal).value = precisionRound(gatotalf,2);
+            if(gaId == 0){
+                document.getElementById(gaIdTotal).style.display="none";
+            }
+            else{
+                document.getElementById(gaIdTotal).style.display="block";
+            }
+
+            //TA
+            var c=parseFloat( document.getElementById('salary1').value);
+            var d= parseInt('ta');
+            var tatotalf = c* d /100;
+            document.getElementById('tatotal').innerHTML = precisionRound(tatotalf,2);
+
+            //TAX
+            var sa1=parseFloat( document.getElementById('salary1').value);
+            var ta1= parseInt('tax');
+            var taxtotalf = sa1* ta1 /100;
+            document.getElementById('taxtotal').innerHTML = precisionRound(taxtotalf,2);
+
+            //gross pay
+            var sa2=parseFloat( document.getElementById('salary1').value);
+            var ga2=parseFloat( document.getElementById('gatotal').value);
+            var ta2=parseFloat( document.getElementById('tatotal').value);
+            var tax2=parseFloat( document.getElementById('taxtotal').value);
+            var gp = sa2 + ga2 - ta2 - tax2;
+
+            document.getElementById('grosstotal').value = precisionRound(gp,2);
+        }
+        function precisionRound(number, precision) {
+            var factor = Math.pow(10, precision);
+            return Math.round(number * factor) / factor;
+        }
+    </script>
+
+</head>
+<body>
+
+    <div class="container" style="text-align: center;">
+        <div class="row">
+            <div class="col-sm-12">
+                <header style="font-size: 28px;margin: 20px;">Salary Book</header>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3" style="margin-bottom: 20px">
+                <label style="margin-left: 200px">Salary</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="number"  id="salary1" class="form-control" />
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label  style="margin-left: 200px">GA</label>
+            </div>
+            <div class="col-sm-3" style="margin-bottom: 20px">
+                <select id="ga" class="form-control" onchange="salarytotal(value,'gatotal')">
+                    <option>0</option>
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <input type="number" readonly id="gatotal" class="form-control" style="margin-bottom: 20px" />
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label  style="margin-left: 200px">TA</label>
+            </div>
+            <div class="col-sm-3">
+                <select id="ta" class="form-control" style="margin-bottom: 20px" onchange="salarytotal(value,'tatotal')">
+                    <option>0</option>
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <input type="number" readonly id="tatotal" style="margin-bottom: 20px" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label  style="margin-left: 200px">TAX</label>
+            </div>
+            <div class="col-sm-3">
+                <select id="tax" class="form-control" style="margin-bottom: 20px" onchange="salarytotal(value,'taxtotal')">
+                    <option>0</option>
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <input type="number" readonly id="taxtotal" style="margin-bottom: 20px" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label  style="margin-left: 180px">Gross Pay</label>
+            </div>
+
+            <div class="col-sm-3">
+                <input type="number" readonly id="grosstotal" class="form-control" />
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

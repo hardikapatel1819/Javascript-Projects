@@ -1,0 +1,117 @@
+<html>
+<head> 
+<script>
+    function calculator(type){
+        var number1 = parseInt(document.getElementById('input1').value);
+        var number2 = parseInt(document.getElementById('input2').value);
+        var output;
+         if(type=="sum"){
+             output = number1 + number2;
+         }
+         else if(type=="sub"){
+             output = number1 - number2;
+        }
+        else if(type=="mul"){
+             output = number1 * number2;
+        }
+        else if(type=="div"){
+             output = number1 / number2;
+        }
+        document.getElementById('output1').value = output;
+    }
+    function calculatorRadio(){
+        var number3 = parseInt(document.getElementById('input3').value);
+        var number4 = parseInt(document.getElementById('input4').value);
+        var output;
+        if(document.getElementById('1').checked){
+            output = number3 + number4;
+        }
+        else if(document.getElementById('2').checked){
+            output = number3 - number4;
+        }
+        else if(document.getElementById('3').checked){
+            output = number3 * number4;
+        }
+        else if(document.getElementById('4').checked){
+            output = number3 / number4;
+        }
+        document.getElementById('output2').value = output;
+    }
+
+    function calculatorDropdown(){
+        var number5 = parseInt(document.getElementById('input5').value);
+        var number6 = parseInt(document.getElementById('input6').value);
+        var output;
+
+        var operation = document.getElementById("operation").value;
+        if(operation == "add"){
+            output = number5 + number6;
+        }
+        else if(operation == "sub"){
+            output = number5 - number6;
+        }
+        else if(operation == "mul"){
+            output = number5 * number6;
+        }
+        else if(operation == "div"){
+            output = number5 / number6;
+        }
+        document.getElementById('output3').value = output;
+    }
+
+function myFunction1(inp1) {
+	alert('myFunction1 called with ' + inp1);
+}
+
+function myFunction2() {
+	alert('myFunction2 called with ' + document.getElementById('text1').value);
+}
+</script>
+</head>
+<body>
+
+<input type='button' name='but0' value='Button' onClick='calculator("calculation")'/>
+
+<input type='button' name='but1' value='Hardika Button' onClick='myFunction1("Hardika")'/>
+
+<input type='button' name='but2' value='Dhaval Button' onClick='myFunction1("Dhaval")'/>
+
+<input type='button' name='but3' value='Radhika Button' onClick='myFunction1("Rad")'/> <br/> <br/> <br/> <br/>
+
+
+
+<input type='text' name='text1' id='text1'/>
+<input type='button' name='but4' value='Display Text Input' onClick='myFunction2()'/> <br/> <br/> <br/> <br/>
+
+
+<input type='text' name='input1' id='input1'/>
+<input type='text' name='input2' id='input2'/><br/>
+<input type='button' name='add' value='Add' onClick='calculator("sum")'/>
+<input type='button' name='sub' value='sub' onClick='calculator("sub")'/>
+<input type='button' name='mul' value='mul' onClick='calculator("mul")'/>
+<input type='button' name='div' value='div' onClick='calculator("div")'/><br/>
+<input type='text' name='output1' id='output1'/><br/><br/><br/><br/><br/><br/>
+
+
+<input type='text' name='input3' id='input3'/>
+<input type='text' name='input4' id='input4'/><br/>
+<input type='radio' name='cal' id='1' value='Add' checked />sum
+<input type='radio' name='cal' id='2' value='sub' />sub
+<input type='radio' name='cal' id='3' value='mul' />mul
+<input type='radio' name='cal' id='4' value='div' />div<br/>
+<input type='button' name='calculator' value='Calculator' onClick='calculatorRadio()'/><br/>
+<input type='text' name='output2' id='output2'/><br/><br/><br/><br/><br/><br/>
+
+<input type='text' name='input5' id='input5'/>
+<input type='text' name='input6' id='input6'/><br/>
+<select id="operation">
+    <option value="add">add</option>
+    <option value="sub">sub</option>
+    <option value="mul">mul</option>
+    <option value="div">div</option>
+</select>
+<input type='button' name='calculator' value='Calculator' onClick='calculatorDropdown()'/><br/>
+<input type='text' name='output3' id='output3'/><br/><br/><br/><br/><br/><br/>
+
+</body>
+</html>

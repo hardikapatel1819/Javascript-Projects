@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function events(ename) {
+            if(document.getElementById("demo1").value == "") {
+                document.getElementById("demo1").value = ename;
+            } else {
+                document.getElementById("demo1").value = document.getElementById("demo1").value + "\n" + ename;
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row" style="text-align: center">
+        <h1>Input Events</h1>
+        <div class="col-sm-6">
+        <input type="text" name="demo" class="form-control" id="demo" onblur="events('onblur')" onselect="events('onselect')" onkeydown="events('onkeydown')" onkeyup="events('onkeyup')" onchange="events('onchange')" onfocus="events('onfocus')">
+        </div>
+        <div class="col-sm-6">
+            <textarea id="demo1" class="form-control" style="height: 500px; margin-top: 10px"></textarea>
+        </div>
+    </div>
+</div>
+</body>
+</html>

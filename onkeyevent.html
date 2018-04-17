@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <title>Title</title>
+    <script>
+        function con1() {
+            var input = parseInt(document.getElementById("input").value);
+            var drp1 = document.getElementById("1").value;
+            var drp2 = document.getElementById("2").value;
+            var output;
+
+            if(drp1 == "kilometer") {
+
+                if(drp2 == "kilometer") {
+                    output = input;
+                } else if(drp2 =="meter"){
+                    output=input*1000;
+                }else if(drp2 =="cm") {
+                    output = input * 100000;
+                }
+            } else if(drp1 == "meter") {
+
+                if(drp2 == "kilometer") {
+                    output = input /1000;
+                } else if(drp2 =="meter"){
+                    output = input;
+                }
+                else if(drp2 =="cm") {
+                    output = input * 100;
+                }
+            }
+            else if(drp1 == "cm") {
+
+                if(drp2 == "kilometer") {
+                    output = input*1e-5;
+                } else if(drp2 =="meter"){
+                    output = input/100;
+                }
+                else if(drp2 =="cm") {
+                    output = input;
+                }
+            }
+
+
+            document.getElementById("output").value = output;
+        }
+        function con2() {
+            var output = parseInt(document.getElementById("output").value);
+            var drp1 = document.getElementById("2").value;
+            var drp2 = document.getElementById("1").value;
+            var input;
+
+            if(drp1 == "kilometer") {
+
+                if(drp2 == "kilometer") {
+                    input = output;
+                } else if(drp2 =="meter"){
+                    input=output*1000;
+                }else if(drp2 =="cm") {
+                    input = output * 100000;
+                }
+            } else if(drp1 == "meter") {
+
+                if(drp2 == "kilometer") {
+                    input = output /1000;
+                } else if(drp2 =="meter"){
+                    input = output;
+                }
+                else if(drp2 =="cm") {
+                    input =output * 100;
+                }
+            }
+            else if(drp1 == "cm") {
+
+                if(drp2 == "kilometer") {
+                    input =output*1e-5;
+                } else if(drp2 =="meter"){
+                    input = output/100;
+                }
+                else if(drp2 =="cm") {
+                    input =output;
+                }
+            }
+
+
+            document.getElementById("input").value = input;
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-3">
+            <h2 style="text-align: center"><b>Unit Converter</b></h2>
+        </div>
+        <div class="col-sm-2">
+        </div>
+
+    </div>
+        <div class="row">
+            <div class="col-sm-7">
+                <select class="form-control" id="cType">
+                    <option value="kilometer">Area</option>
+                    <option value="kilometer">Data Transfer Rate</option>
+                    <option value="kilometer">Digital Storage</option>
+                    <option value="kilometer"> Energy</option>
+                    <option value="kilometer">Frequncy</option>
+                    <option value="kilometer">Fuel Economy</option>
+                    <option value="kilometer">Length</option>
+                    <option value="kilometer">Mass</option>
+                    <option value="meter">Plane Angle</option>
+                    <option value="kilometer">Pressure</option>
+                    <option value="kilometer">Speed</option>
+                    <option value="kilometer">Temprature</option>
+                    <option value="kilometer">Time</option>
+                    <option value="kilometer">Volume</option>
+                </select>
+            </div>
+        </div>
+        <br/>
+    <div class="row">
+    <div class="col-sm-3">
+        <input type="text" id="input" class="form-control" name="input"  onkeyup="con1()" /><br>
+            <select class="form-control" id="1" style="margin-top: -15px;background-color:  #e9ece2;" onchange="con1()">
+                <option value="kilometer">kilometer</option>
+                <option value="meter">meter</option>
+                <option value="cm">cm</option>
+            </select>
+    </div>
+        <div class="col-sm-1">
+            <p style="font-size: 30px; text-align: center"><b>=</b></p>
+        </div>
+            <div class="col-sm-3">
+        <input type="text" id="output" class="form-control" name="output"  onkeyup="con2() "><br>
+        <select class="form-control" id="2" style="margin-top: -15px;background-color: #e9ece2;" onchange="con1()">
+            <option value="kilometer">kilometer</option>
+            <option value="meter">meter</option>
+            <option value="cm">cm</option>
+        </select>
+    </div>
+</div>
+    </div>
+</body>
+</html>

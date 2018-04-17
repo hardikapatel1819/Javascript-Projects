@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function eonblur() {
+        alert("This is OnBlur event");
+    }
+    function eonchange() {
+        alert("This is onchange event");
+    }
+    function eonfocus() {
+        alert("This is onfocus event");
+    }
+    function eonselect() {
+        alert("This is Onselect event");
+    }
+    function eonkeydown() {
+        alert("this is onkeydown event");
+    }
+    function eonkeypress() {
+        alert("this is onkeypress event");
+    }
+    function eonkeyup() {
+        alert("this is onkeyup event");
+    }
+</script>
+<body>
+onblur:<input type="text" name="blur" id="blur" onblur="eonblur()"/><br/><br/>
+Onchange:<input type="text" name="change" id="change" onchange="eonchange()"/><br/><br/>
+onfocus: <input type="text" name="focus" id="focus" onfocus="eonfocus()" /><br/><br/>
+onselect: <input type="text" name="select" id="select" value="hello world"  onselect="eonselect()" /><br/><br/>
+onkeydown: <input type="text" name="keydown" id="keydown" onkeydown="eonkeydown()" /><br/><br/>
+onkeypress: <input type="text" name="keypress" id="keypress" onkeypress="eonkeypress()" /><br/><br/>
+onkeyup: <input type="text" name="keyup" id="keyup" onkeyup="eonkeyup()"/>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>change text property</title>
+</head>
+<body>
+    <div class="container">
+        <form class="form-horizontal" role="form">
+
+            <div class="textb row">
+               <div class="col-sm-12">
+                   <div id="mtext" style="color: red;font-size: 10px;">This text is Left aligned!!!</div>
+               </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+        <!--<div class="form-group">-->
+        <div class="row ltsp">
+            <div class="col-sm-4">
+                <input class="button" type="button" value="Left" id="left" onclick="setAlignment(this.value)"/>
+                <input class="button" type="button" value="Center" id="center" onclick="setAlignment(this.value)"/>
+                <input class="button" type="button" value="Right" id="Right" onclick="setAlignment(this.value)"/>
+            </div>
+            <div class="col-sm-1">
+                <input type="checkbox" value="Bold" name="bold" id="bld" onchange='setFontWeight()'>Bold<br/>
+                <input type="checkbox" value="Italic" name="italic" id="itl" onchange='setFontStyle()'>Italic
+            </div>
+        </div><!-- row close -->
+         <!--form group close -->
+            <br/>
+            <br/>
+            <div class="row ltsp">
+                <div class="col-sm-3">
+                    <input class="radio-inline" type="radio" name="color" value="red" checked onclick="setColor('red')">Red
+                    <input class="radio-inline" type="radio" name="color" value="blue" onclick="setColor('blue')">Blue
+                    <input class="radio-inline" type="radio" name="color" value="green" onclick="setColor('green')">Green
+                </div><!--clm close-->
+
+
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>validationform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container" style="margin-top: 50px">
+    <form class="form-horizontal" action="" method="post">
+
+        <div class="form-group">
+            <label >First Name:</label>
+            <input type="text" class="form-control" id="firstname" placeholder="Enter FirstName">
+            <p id="frp" style="color: red";></p>
+        </div>
+        <div class="form-group" style="margin-top: -20px">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+            <p id="pass1" style="color: red";></p>
+        </div>
+
+        <div class="form-group">
+            <label>Country:</label>
+            <select name="country" id="coun">
+                <option selected=""></option>
+                <option value="AF">India</option>
+                <option value="AL">Canada</option>
+                <option value="DZ">Australia</option>
+                <option value="AS">Russia</option>
+                <option value="AD">USA</option>
+            </select>
+            <p id="con1" style="color: red";></p>
+        </div>
+
+        <div class="form-group">
+            <label >Pin code:</label>
+            <input type="text" class="form-control" id="pin" maxlength="5" placeholder="Enter Pincode">
+            <p id="code" style="color: red";></p>
+        </div>
+
+        <div class="form-group" style="text-align: center">
+            <button type = "button" class="btn btn-primary"  onclick= "return validationform('firstname','frp')"> submit </button>
+        </div>
+
+
+    </form>
+
+    </div>
+    <script>
+        function validationform(firstName,subId) {
+            //first name
+            console.log("hello");
+            x = document.getElementById(firstName).value;
+            if (!x.match(/^[a-zA-Z]+$/)) {
+                document.getElementById(subId).innerHTML = "First name is invalid";
+            } else {
+                document.getElementById(subId).innerHTML = "success";
+            }
+            console.log("hello1");
+
+            console.log("hello2");
+            //password
+            pass = document.getElementById('pwd').value;
+            if (pass == "") {
+                document.getElementById('pass1').innerHTML = "Invalid";
+            } else {
+                document.getElementById('pass1').innerHTML = "valid";
+            }
+
+            //country
+            var count1 = document.getElementById('coun').value;
+            if (count1 == "") {
+                alert("hello");
+                document.getElementById('con1').innerHTML = "Please select a Country";
+            } else {
+                document.getElementById('con1').innerHTML = " your selection is valid";
+            }
+
+            //pincode
+            var pincode = document.getElementById('pin').value;
+            if(pincode == "" || pincode.length!=5 || isNaN(pincode)) {
+                document.getElementById('code').innerHTML = "Invalid";
+            }else {
+                document.getElementById('code').innerHTML = "valid";
+            }
+
+            return false;
+        }
+
+
+    </script>
+</body>
+</html>

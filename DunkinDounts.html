@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dunkin Dounts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script>
+
+
+        function dunkin(priceLabelId, quantity, totalLabelId) {
+
+            var price = parseFloat(document.getElementById(priceLabelId).textContent);
+            var total = quantity * price;
+
+            document.getElementById(totalLabelId).innerHTML = precisionRound(total, 2);
+
+            var finaltotal = 0;
+            var temp = 0;
+            var i;
+
+                for (i=1;i<11;i++)
+                {
+                    var t = 'total'+ i;
+                    temp = parseFloat(document.getElementById(t).innerHTML);
+                    finaltotal = finaltotal+temp;
+                }
+                document.getElementById("total").innerHTML = precisionRound(finaltotal,2);
+
+        }
+        function precisionRound(number, precision) {
+            var factor = Math.pow(10, precision);
+            return Math.round(number * factor) / factor;
+        }
+        function dunkindiscount(totalLableId,disc,totalDiscountId) {
+
+            var a=parseFloat( document.getElementById(totalLableId).textContent);
+
+            var b= parseFloat(disc);
+            var discount = a* b /100;
+            document.getElementById("totaldis").value = precisionRound(discount,2);
+
+            var c= parseFloat(document.getElementById('total').textContent);
+
+            var d= parseFloat(document.getElementById('totaldis').value);
+            var fitotal = c - d;
+            document.getElementById('ftotal').innerHTML = precisionRound(fitotal,2);
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <div class="container" style="border: 2px solid black;">
+        <div class="row" style="border: 1px double black;">
+            <div class="col-sm-12">
+                <h1 style="text-align: center;"><span style="color: darkorange">Dunkin</span><span style="color: hotpink">Dounts</span> </h1>
+            </div>
+        </div>
+
+        <div class="row" id="secondrow" style="text-align: center; border: 2px solid darkblue;margin-bottom: 10px;">
+            <div class="col-sm-3">
+                <label class="coffee"><h3 style="color: darkorange">Item</h3></label><br>
+            </div>
+            <div class="col-sm-3">
+                <label class="price"><h3 style="color: deeppink">Price</h3></label>
+            </div>
+            <div class="col-sm-3">
+                <label class="quantity"><h3 style="color: darkorange">Quantity</h3></label>
+            </div>
+            <div class="col-sm-3">
+                <label class="total"><h3 style="color: deeppink">Total</h3></label>
+            </div>
+        </div>
+
+
+        <div class="row" id="1" style="text-align: center; ">
+            <div class="col-sm-3">
+                <label class="coffee"><span style="color: darkorange; font-size: 16px">Cold Coffee</span></label><br>
+            </div>
+            <div class="col-sm-3">
+                <label class="price" id="price1">2.20</label>
+            </div>
+            <div class="col-sm-3" >
+                <select class="form-control" id="que1" onchange="dunkin('price1', value,'total1')">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label id="total1" class="form-control"  style="text-align: right">0.00</label>
+            </div>
+        </div>
+
+        <div class="row" id="2" style="text-align: center; margin-top: 10px;">
+            <div class="col-sm-3">
+                <label class="coffee"><span style="color: deeppink ; font-size: 16px">Hot Coffee</span></label><br>
+            </div>
+            <div class="col-sm-3">
+                <label class="price"id="price2">2.50</label>
+            </div>
+            <div class="col-sm-3" >
+                <select class="form-control" id="que2"  onchange="dunkin('price2', value,'total2')">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label id="total2" class="form-control"  style="text-align: right">0.00</label>
+            </div>
+        </div>
+        <hr style="color: #131B24;">
+        <div class="row" id="3" style="text-align: center; margin-top: 10px;">
+            <div class="col-sm-3">
+                <label class="coffee"><span style="color: darkorange; font-size: 16px">Glazed Donuts</span></label><br>
+            </div>
+            <div class="col-sm-3">
+                <label  class="price" id="price3">0.99</label>
+            </div>
+            <div class="col-sm-3" >
+                <select class="form-control" id="que3"  onchange="dunkin('price3', value,'total3')">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label id="total3" class="form-control"  style="text-align: right">0.00</label>
+            </div>
+        </div>
+
+        <div class="row" id="4" style="text-align: center; margin-top: 10px;">
+            <div class="col-sm-3">
+                <label class="coffee"><span style="color: deeppink ; font-size: 16px">Chocolate Donuts with Sprinkles</span></label><br>
+            </div>
+            <div class="col-sm-3">
+                <label  class="price" id="price4">0.99</label>
+            </div>
+            <div class="col-sm-3" >
+                <select class="form-control" id="que4"  onchange="dunkin('price4', value,'total4')">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label id="total4" class="form-control"  style="text-align: right">0.00</label>
+            </div>
+        </div>
+
+        <div class="row" id="5" style="text-align: center; margin-top: 10px;">
+            <div class="col-sm-3">
+                <label class="coffee"><span style="color: darkorange; font-size: 16px">Boston Creme Donuts</span></label><br>
+            </div>
+            <div class="col-sm-3">
+                <label  class="price" id="price5">0.99</label>
+            </div>
+            <div class="col-sm-3" >
+                <select class="form-control" id="que5"  onchange="dunkin('price5', value,'total5')">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label id="total5" class="form-control"  style="text-align: right">0.00</label>
+            </div>
+        </div>
+
+
+        <div class="row" id="6" style="text-align: center; margin-top: 10px;">
+            <div class="col-sm-3">
+                <label class="coffee"><span style="color: deeppink ; font-size: 16px">Bavarian Kreme Donuts</span></label><br>
+            </div>
+            <div class="col-sm-3">
+                <label  class="price" id="price6">0.99</label>
+            </div>
+            <div class="col-sm-3" >
+                <select class="form-control" id="que6"  onchange="dunkin('price6', value,'total6')">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label id="total6" class="form-control"  style="text-align: right">0.00</label>
+            </div>
+        </div>
+
+        <div class="row" id="7" style="text-align: center; margin-top: 10px;">
+            <div class="col-sm-3">
+                <label class="coffee"><span style="color: darkorange; font-size: 16px">Glazed Blueberry Donuts</span></label><br>
+            </div>
+            <div class="col-sm-3">
+                <label  class="price" id="price7">0.99</label>
+            </div>
+            <div class="col-sm-3" >
+                <select class="form-control" id="que7"  onchange="dunkin('price7', value,'total7')">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label id="total7" class="form-control"  style="text-align: right">0.00</label>
+            </div>
+        </div>
+        <hr>
+        <div class="row" id="8" style="text-align: center; margin-top: 10px;">
+            <div class="col-sm-3">
+                <label class="coffee"><span style="color: deeppink ; font-size: 16px">Poppyseed Bagel</span></label><br>
+            </div>
+            <div class="col-sm-3">
+                <label  class="price" id="price8">1.29</label>
+            </div>
+            <div class="col-sm-3" >
+                <select class="form-control" id="que8"  onchange="dunkin('price8', value,'total8')">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label id="total8" class="form-control"  style="text-align: right">0.00</label>
+            </div>
+        </div>
+
+
+        <div class="row" id="9" style="text-align: center; margin-top: 10px;">
+            <div class="col-sm-3">
+                <label class="coffee"><span style="color: darkorange; font-size: 16px">Plain Bagel</span></label><br>
+            </div>
+            <div class="col-sm-3">
+                <label  class="price" id="price9">1.29</label>
+            </div>
+            <div class="col-sm-3" >
+                <select class="form-control" id="que9"  onchange="dunkin('price9', value,'total9')">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label id="total9" class="form-control"  style="text-align: right">0.00</label>
+            </div>
+        </div>
+
+
+        <div class="row" id="10" style="text-align: center; margin-top: 10px;">
+            <div class="col-sm-3">
+                <label class="coffee"><span style="color: deeppink ; font-size: 16px">Hash Brown</span></label><br>
+            </div>
+            <div class="col-sm-3">
+                <label  class="price" id="price10">0.89</label>
+            </div>
+            <div class="col-sm-3" >
+                <select class="form-control" id="que10"  onchange="dunkin('price10', value,'total10')">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label id="total10" class="form-control"  style="text-align: right">0.00</label>
+            </div>
+        </div>
+            <hr>
+        <div class="row" style=" margin-top: 10px; margin-bottom: 10px;">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3" style="text-align: right;font-size: 20px"><b style="color: red;">Total =</b></div>
+            <div class="col-sm-3">
+                <label id="total" class="form-control"  style="text-align: right">0.00</label>
+            </div>
+        </div>
+
+        <hr>
+        <div class="row" style=" margin-top: 10px; margin-bottom: 10px;">
+            <div class="col-sm-3"><span style="color: deeppink ; font-size: 16px; text-align: right;"><b>Discount </b> </span></div>
+            <div class="col-sm-3">
+                <select id="dis" class="form-control" onchange="dunkindiscount('total',value,'totaldis')">
+                    <option>0</option>
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                </select>
+            </div>
+            <div class="col-sm-3" style="text-align: right;font-size: 20px"><b style="color: red;">Discount(%)</b></div>
+            <div class="col-sm-3">
+                <input type="text" id="totaldis" class="form-control"  style="text-align: right" value="0.00" />
+            </div>
+        </div>
+
+        <hr>
+        <div class="row" style=" margin-top: 10px; margin-bottom: 10px;">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3" style="text-align: right;font-size: 20px"><b style="color: red;">FinalTotal =</b></div>
+            <div class="col-sm-3">
+                <label id="ftotal" class="form-control"  style="text-align: right">0.00</label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

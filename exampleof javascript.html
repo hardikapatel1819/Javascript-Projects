@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>example of javascript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body id="bodyId">
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class="col-sm-6">
+              Number1:  <input type="number" class="form-control" id="num1" />
+              Number2:  <input type="number" class="form-control" id="num2" />
+
+
+                <input type="radio" name="total" onchange="tableofsum('num1','num2','ans')">sum
+                <input type="radio" name="total" onchange="tableofmul('num1','num2','ans')">mul
+                <input type="radio" name="total" onchange="tableOfsub('num1','num2','ans')">sub
+                <input type="radio" name="total" onchange="tableOfdiv('num1','num2','ans')">div<br>
+
+               Answer <input type="number" readonly class="form-control" id="ans"/>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Change The BackgroundColor</h2>
+                BackgroundColor:<input type="text" class="form-control" id="color" onchange=" backcolor('color')" />
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Odd & Even Number</h3>
+                Number:<input type="number" class="form-control" id="oddeven" onchange="oddevennum('oddeven','oddevenText')">
+                <p id="oddevenText"></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Convert Lower To Capital</h3>
+                String:<input type="text" class="form-control" id="lower" onchange="lowerCap('lower','cap')">
+                Output:<p id="cap"></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Select The CheckBox</h3>
+                <input type="checkbox" name="language" id="check1" value="Gujarati" onclick="checkboxes('language','paraId')">Gujarati
+                <input type="checkbox" name="language"  id="check2" value="English"  onclick="checkboxes('language','paraId')">English
+                <input type="checkbox" name="language"  id="check3" value="Hindi"  onclick="checkboxes('language','paraId')">Hindi
+                <input type="checkbox" name="language"  id="check4" value="Spanish" onclick="checkboxes('language','paraId')">Spanish
+                <input type="checkbox" name="language"  id="check5" value="Marathi" onclick="checkboxes('language','paraId')">Marathi<br>
+                Output:You know theses language: <span id="paraId"></span>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <script>
+        function tableofsum(num1Id,num2Id,totalId) {
+            var number1 = parseFloat(document.getElementById(num1Id).value);
+            var number2 = parseFloat(document.getElementById(num2Id).value);
+            var answer = number1 + number2;
+            document.getElementById(totalId).value = answer;
+        }
+        function tableofmul(numIdMul1,numIdmul2,mulIdTotal) {
+            var number3 = parseFloat(document.getElementById(numIdMul1).value);
+            var number4 = parseFloat(document.getElementById(numIdmul2).value);
+            var answer2 = number3 * number4;
+            document.getElementById(mulIdTotal).value = answer2;
+        }
+        function tableOfsub(numIdSub1,numIdSub2,subTotalId) {
+            var number5 = parseFloat(document.getElementById(numIdSub1).value);
+            var number6 = parseFloat(document.getElementById(numIdSub2).value);
+            var answer3 = number5 - number6;
+            document.getElementById(subTotalId).value = answer3;
+        }
+        function tableOfdiv(numIddiv1,numIddiv2,divTotalId) {
+            var number7 = parseFloat(document.getElementById(numIddiv1).value);
+            var number8 = parseFloat(document.getElementById(numIddiv2).value);
+            var answer4 = number7 / number8;
+            document.getElementById(divTotalId).value = answer4;
+        }
+
+        function backcolor(color) {
+            var temp = document.getElementById(color).value;
+            document.getElementById(color).style.backgroundColor = temp;
+
+           // alert("hello");
+        }
+
+        function oddevennum(oddEvenId,paraId) {
+            var num = parseFloat(document.getElementById(oddEvenId).value);
+            if (num % 2 == 0){
+               document.getElementById(paraId).innerHTML= "Even";
+            }
+            else {
+                document.getElementById(paraId).innerHTML= "Odd";
+            }
+        }
+
+        function lowerCap(lowerId,capId) {
+           var lowercap1 = document.getElementById(lowerId).value;
+           document.getElementById(capId).innerHTML = lowercap1.toUpperCase();
+        }
+
+        function checkboxes(checkboxname,checkboxId) {
+            var check = document.getElementsByName(checkboxname);
+            var x = [];
+            for(var i=0;i<check.length;i++){
+                //And stick the checked ones onto an array
+                if (check[i].checked){
+                    x.push(check[i].value);
+                }
+            }
+
+        document.getElementById(checkboxId).innerHTML = x;
+        }
+    </script>
+
+</body>
+</html>
